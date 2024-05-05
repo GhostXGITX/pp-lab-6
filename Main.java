@@ -44,12 +44,6 @@ public class Main {
         System.out.println("Total salary of all Workers: " + totalSalaryWorkers);
         
 
-       // for (Employee employee : employees) {
-           // System.out.println("- " + employee.getName() + " (ID: " + employee.hashCode() + ", Position: " + 
-           //                     employee.getPosition() + ", Hire date: " + employee.getHireDate() + ", Salary: " + 
-           //                     employee.getSalary() + ")");
-          //  employee.work();
-
             System.out.println("Instances with the same ID:");
         for (Employee employee : employees) {
             for (Employee otherEmployee : employees) {
