@@ -1,29 +1,32 @@
 import company.models.Worker;
 import company.models.Manager;
+import company.abstracts.Employee;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Worker worker1 = new Worker("John", 2000, 1);
-        Worker worker2 = new Worker("Alice", 1800, 2);
-        Worker worker3 = new Worker("Bob", 2200, 3);
-        Worker worker4 = new Worker("Eva", 1900, 4);
+        Worker worker1 = new Worker("John", 2000, 1, "01-01-2022","Junior Developer");
+        Worker worker2 = new Worker("Alice", 1800, 2,"15-12-2021", "Developer");
+        Worker worker3 = new Worker("Bob", 2200, 3, "10-02-2020", "Senior Developer");
+        Worker worker4 = new Worker("Eva", 1900, 4, "05-03-2020", "Mid-Level Developer");
 
-        Manager manager = new Manager("Michael", 3500, 5);
+        Manager manager = new Manager("Michael", 3500, 5, "15-11-2015","Project Manager");
 
-        System.out.println("Worker 1 salary: " + worker1.getSalary());
-        worker1.work();
+        List<Employee> employees = new ArrayList<>();
+        employees.add(worker1);
+        employees.add(worker2);
+        employees.add(worker3);
+        employees.add(worker4);
+        employees.add(manager);
 
-        System.out.println("Worker 2 salary: " + worker2.getSalary());
-        worker2.work();
-
-        System.out.println("Worker 3 salary: " + worker3.getSalary());
-        worker3.work();
-
-        System.out.println("Worker 4 salary: " + worker4.getSalary());
-        worker4.work();
-
-        System.out.println("Manager salary: " + manager.getSalary());
-        manager.work();
+        for (Employee employee : employees) {
+            System.out.println("- " + employee.getName() + " (ID: " + employee.hashCode() + ", Position: " + 
+                                employee.getPosition() + ", Hire date: " + employee.getHireDate() + ", Salary: " + 
+                                employee.getSalary() + ")");
+            employee.work();
+        }
+        
         
     }
 
